@@ -92,13 +92,6 @@ html.no-js .no-js-inline {
 html.no-js .no-js-hidden {
   display: none !important;
 }
-
-.page-width {
-  max-width: var(--page-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   max-width: 100%;
 }
@@ -116,12 +109,18 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   padding-left: 3rem;
   padding-right: 3rem;
 }
-
+.page-width {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+@media screen and (max-width:1024px) {
+    .page-width{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
 @media screen and (min-width: 750px) {
-  .page-width {
-    padding: 0 5rem;
-  }
-
   .header.page-width,
   .utility-bar__grid.page-width {
     padding-left: 3.2rem;
@@ -278,7 +277,7 @@ h5,
   font-family: var(--font-heading-family);
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
-  letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
+  letter-spacing: calc(var(--font-heading-scale) * 0.03rem);
   color: rgb(var(--color-foreground));
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   word-break: break-word;
@@ -318,16 +317,23 @@ h1,
 
 h2,
 .h2 {
-  font-size: calc(var(--font-heading-scale) * 2rem);
+  font-size: calc(var(--font-heading-scale) * 2.4rem);
+  font-weight: 700;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 990px) {
   h2,
   .h2 {
-    font-size: calc(var(--font-heading-scale) * 2.4rem);
+    font-size: calc(var(--font-heading-scale) * 3rem);
   }
 }
 
+@media screen and (min-width: 1440px){
+  h2,
+  .h2{
+    font-size: calc(var(--font-heading-scale) * 4.4rem);
+  }
+}
 h3,
 .h3 {
   font-size: calc(var(--font-heading-scale) * 1.7rem);
@@ -1218,8 +1224,8 @@ button.shopify-payment-button__button--unbranded,
 .shopify-challenge__button,
 .customer button,
 button.shopify-payment-button__button--unbranded {
-  min-width: calc(12rem + var(--buttons-border-width) * 2);
-  min-height: calc(4.5rem + var(--buttons-border-width) * 2);
+  min-width: calc(7rem + var(--buttons-border-width) * 2);
+  min-height: calc(2.5rem + var(--buttons-border-width) * 2);
 }
 
 .shopify-payment-button__button--branded {
@@ -1238,7 +1244,7 @@ button.shopify-payment-button__button--unbranded {
   justify-content: center;
   align-items: center;
   border: 0;
-  padding: 0 3rem;
+  padding: 0.5rem 1.5rem;
   cursor: pointer;
   font: inherit;
   font-size: 1.5rem;
@@ -1329,8 +1335,7 @@ button.shopify-payment-button__button--unbranded {
 .shopify-challenge__button,
 .customer button {
   font-size: 1.5rem;
-  letter-spacing: 0.1rem;
-  line-height: calc(1 + 0.2 / var(--font-body-scale));
+  line-height: calc(1 + 0.8 / var(--font-body-scale));
 }
 
 .button--tertiary {
@@ -1585,9 +1590,6 @@ details[open] > .share-button__fallback {
   appearance: none;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
-  font-family: var(--font-body-family);
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
   font-size: 1.6rem;
   width: 100%;
   box-sizing: border-box;
@@ -1928,9 +1930,6 @@ input[type='checkbox'] {
 
 .quantity__input {
   color: currentColor;
-  font-family: var(--font-body-family);
-  font-style: var(--font-body-style);
-  font-weight: var(--font-body-weight);
   font-size: 1.6rem;
   font-weight: 500;
   opacity: 0.85;
@@ -2242,11 +2241,6 @@ product-info .loading__spinner:not(.hidden) ~ *,
 }
 
 @media screen and (min-width: 990px) {
-  body:has(.section-header .header:not(.drawer-menu)) .utility-bar .page-width {
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-
   .announcement-bar-slider {
     width: 60%;
   }

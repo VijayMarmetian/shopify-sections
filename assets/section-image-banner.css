@@ -2,8 +2,6 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  z-index: auto;
-  isolation: isolate;
 }
 
 .banner__box {
@@ -90,7 +88,7 @@
   }
 
   .banner--medium:not(.banner--adapt) {
-    min-height: 56rem;
+    min-height: 45rem;
   }
 
   .banner--large:not(.banner--adapt) {
@@ -164,6 +162,7 @@
   left: 0;
   top: 0;
   width: 100%;
+  border-radius: var(--media-radius);
 }
 
 .banner__media-half {
@@ -278,7 +277,7 @@
 
 @media screen and (min-width: 750px) {
   .banner__content {
-    padding: 5rem;
+    padding: 1rem;
   }
 
   .banner__content--top-left {
@@ -333,13 +332,12 @@
   }
 
   .banner:not(.banner--mobile-bottom) .field__input,
-  .banner--mobile-bottom:not(.banner--stacked) .banner__box.color-scheme-1 {
+  .banner--mobile-bottom:not(.banner--stacked) .banner__box.color-background-1 {
     background: transparent;
   }
 }
 
 .banner__box {
-  padding: 4rem 3.5rem;
   position: relative;
   height: fit-content;
   align-items: center;
@@ -352,10 +350,11 @@
 @media screen and (min-width: 750px) {
   .banner--desktop-transparent .banner__box {
     background: transparent;
-    max-width: 89rem;
+    max-width: 50rem;
     border: none;
     border-radius: 0;
     box-shadow: none;
+    padding: 1rem;
   }
 
   .banner--desktop-transparent .button--secondary {
@@ -379,7 +378,6 @@
   content: '';
   position: absolute;
   top: 0;
-  background: #000000;
   opacity: 0;
   z-index: 1;
   width: 100%;
@@ -463,7 +461,7 @@
 }
 
 .banner__box > * + .banner__buttons {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 749px) {
@@ -480,4 +478,28 @@
   .banner--desktop-transparent .rte a:hover {
     color: currentColor;
   }
+}
+@media screen and (max-width: 991px){
+  .banner__content{
+    padding: 1rem;
+  }
+  .banner__box{
+    padding: 1rem;
+  }
+}
+
+.banner__text.rte.description{
+  color: rgb(var(--color-foreground), 0.75); 
+}
+.banner__media:not(.video-overlay)::after {
+  border-radius: var(--media-radius);
+}
+.banner:not(.banner--mobile-bottom) .banner__box {
+  border-radius: var(--media-radius);
+}
+.banner__media img {
+  transition: transform 0.5s ease-in-out;
+}
+.banner:hover .banner__media img {
+  transform: scale(1.1);
 }
