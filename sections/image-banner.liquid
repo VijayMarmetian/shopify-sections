@@ -55,8 +55,9 @@
     assign fetch_priority = 'high'
   endif
 -%}
-  <image-banner data-section-id="{{ section.id }}">
-<div class="padding--{{ section.id }}">
+<div class="banner-carousel-container">
+  <image-banner data-section-id="{{ section.id }}" class="carousel-parent-container">
+   <div class="padding--{{ section.id }}">
      <div
       id="Banner-{{ section.id }}"
       class="wbimgbnrblock banner banner--content-align-{{ section.settings.desktop_content_alignment }} banner--content-align-mobile-{{ section.settings.mobile_content_alignment }} banner--{{ section.settings.image_height }}{% if section.settings.stack_images_on_mobile and section.settings.image != blank and section.settings.image_2 != blank %} banner--stacked{% endif %}{% if section.settings.image_height == 'adapt' and section.settings.image != blank %} banner--adapt{% endif %}{% if section.settings.show_text_below %} banner--mobile-bottom{%- endif -%}{% if section.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
@@ -145,15 +146,18 @@
                   class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}"
                   {{ block.shopify_attributes }}
                 >
-                  <button id="loadContentButton" class="button button--secondary">{{ block.settings.button_label_1 }}</button>
+                  <button class="button button--secondary">{{ block.settings.button_label_1 }}</button>
                 </div>
             {%- endcase -%}
           {%- endfor -%}
         </div>
       </div>
     </div>         
-</div>
+  </div>
 </image-banner>
+  <button id="scrollLeft" class="bn632-hover bn27 carousel-button prev-btn">Prev</button>
+  <button id="loadContentButton" class="bn632-hover bn27 carousel-button next-btn">Next</button>
+</div>
 
 {% schema %}
 {
